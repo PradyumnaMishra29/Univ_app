@@ -1,27 +1,41 @@
 const { environment } = require('@rails/webpacker')
 
+  const webpack = require('webpack');
+  environment.plugins.prepend('Provide', new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery'
+  }))
+
+
 module.exports = environment
 
-const { environment } = require('@rails/webpacker');
+// const webpack = require('webpack');
+// environment.plugins.prepend('Provide', new webpack.ProvidePlugin({
+//   $: 'jquery/src/jquery',
+//   jQuery: 'jquery/src/jquery'
+// })
+// )
 
-const webpack = require('webpack');
-environment.plugins.prepend('Provide', new webpack.ProvidePlugin({
-  $: 'jquery',
-  jQuery: 'jquery'
-}));
+// const { environment } = require('@rails/webpacker');
 
-// Add Materialize to the JavaScript load path
-environment.loaders.append('sass', {
-  test: /\.scss$/,
-  use: [
-    {
-      loader: 'sass-loader',
-      options: {
-        additionalData: `@import "materialize";`
-      }
-    }
-  ]
-});
+// const webpack = require('webpack');
+// environment.plugins.prepend('Provide', new webpack.ProvidePlugin({
+//   $: 'jquery',
+//   jQuery: 'jquery'
+// }));
 
-module.exports = environment;
+// // Add Materialize to the JavaScript load path
+// environment.loaders.append('sass', {
+//   test: /\.scss$/,
+//   use: [
+//     {
+//       loader: 'sass-loader',
+//       options: {
+//         additionalData: `@import "materialize";`
+//       }
+//     }
+//   ]
+// });
+
+// module.exports = environment;
 
